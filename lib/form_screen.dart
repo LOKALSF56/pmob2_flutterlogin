@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dashboard_screen.dart';
 
 class FormScreen extends StatefulWidget {
+  const FormScreen({super.key});
+
   @override
   State<FormScreen> createState() => _FormScreenState();
 }
@@ -16,12 +18,12 @@ class _FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Form Page"),
+        title: const Text("Form Page"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
           child: Form(
             key: _formfield,
             child: Column(
@@ -33,11 +35,13 @@ class _FormScreenState extends State<FormScreen> {
                   height: 150,
                   width: 150,
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  textDirection:
+                      TextDirection.ltr, // Ensure left-to-right input
+                  decoration: const InputDecoration(
                     labelText: "Email",
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.email),
@@ -54,14 +58,14 @@ class _FormScreenState extends State<FormScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                   controller: passController,
                   obscureText: passToggle,
                   decoration: InputDecoration(
                     labelText: "Password",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: InkWell(
                       onTap: () {
                         setState(() {
@@ -81,15 +85,14 @@ class _FormScreenState extends State<FormScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
                 InkWell(
                   onTap: () {
                     if (_formfield.currentState!.validate()) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              DashboardScreen(email: emailController.text),
+                          builder: (context) => DashboardScreen(),
                         ),
                       );
                     }
@@ -100,7 +103,7 @@ class _FormScreenState extends State<FormScreen> {
                       color: Colors.indigo,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "Masuk",
                         style: TextStyle(
@@ -112,17 +115,17 @@ class _FormScreenState extends State<FormScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Sudah Punya Akun?",
                       style: TextStyle(fontSize: 16),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         "Masuk",
                         style: TextStyle(
                           fontSize: 18,
