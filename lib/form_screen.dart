@@ -39,8 +39,7 @@ class _FormScreenState extends State<FormScreen> {
                 TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
-                  textDirection:
-                      TextDirection.ltr, // Ensure left-to-right input
+                  textDirection: TextDirection.ltr,
                   decoration: const InputDecoration(
                     labelText: "Email",
                     border: OutlineInputBorder(),
